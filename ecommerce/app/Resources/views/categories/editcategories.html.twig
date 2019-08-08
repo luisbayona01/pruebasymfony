@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    
+
+    <div class="panel panel-default">
+        <div class="panel-heading">edicion de categorias</div>
+        <div class="panel-body">
+
+            <form id="editcategory">
+              
+       <input type="hidden" name="id" value="{{category.id}}">
+   
+                <div class="form-group">
+                    <label for="">Codigo:</label>
+                    <input type="text" class="form-control" name="code" id="codigoedit" value="{{category.code}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Nombre:</label>
+                    <input type="text" class="form-control" name="name" id="NombreE" value="{{category.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Descripcion</label>
+                    <textarea class="form-control rounded-0" name="description" id="descripcionE" rows="3">
+                        {{category.description}}
+                    </textarea>
+                </div>
+
+                  <div class="form-group">
+                    <label for="">Status</label>
+                   <select name="status" class="form-control">
+                    {% if category.active == false %}
+       
+                    <option value="1">Activar</option>
+                    <option value="0" seleted>DesActivar</option>
+      {% endif %}
+      
+          {% if category.active == true %}
+       
+                    <option value="1" selected>Activar</option>
+                    <option value="0">DesActivar</option>
+      {% endif %}
+      </select>              
+                    
+                </div>
+            
+            </form>    
+
+        </div>
+    </div>
+{% endblock %}
+

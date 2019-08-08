@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+       <nav class="navbar navbar-default" role="navigation" id="navegacion">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse">
+        
+        <ul class="nav navbar-nav navbar-center">
+            <li><a href="/">inicio</a></li>
+            <li><a href="/categorias">Categorias</a></li>
+            
+        </ul>
+        
+    </div>
+</nav>
+ <div class="container">
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Agregar producto </button>
+        
+        <div class="panel panel-default">
+                       
+                        <div class="panel-body">
+                            
+                            <table width="100%" cellspacing="0" class="table" dt-options="dtOptions" dt-columns="dtColumns" id="products">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>marca</th>
+                    <th>precio</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="productos in product">
+                    <td><%productos.code%></td>
+                    <td><%productos.name%></td>
+                    <td><%productos.description%></td>
+                    <td><%productos.brand%></td>
+                    <td><%productos.price%></td>
+                    
+                    <td><button type="button" class="btn btn-warning" ng-click="updateproductos(productos.id)">Editar</button></td>
+                    <td><button type="button" class="btn btn-danger"ng-click="deleteproductos(productos.id)" >Eliminar</button></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+
+                            
+                        </div>
+                    </div>
+
+        
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Creacion de productos</div>
+                        <div class="panel-body">
+                            
+                <form id="registerproduct">
+               <div class="form-group">
+                 <label for="">Codigo:</label>
+                 <input type="text" class="form-control" name="code" id="Pcodigo">
+               </div>
+               <div class="form-group">
+                 <label for="">Nombre:</label>
+                 <input type="text" class="form-control" name="name" id="PNombre">
+               </div>
+                <div class="form-group">
+              <label for="">Descripcion</label>
+            <textarea class="form-control rounded-0" name="description" id="Pdescripcion" rows="3"></textarea>
+                 
+                </div>
+                   <div class="form-group">
+                    <label for="">Marca</label>
+              <input type="text" class="form-control" name="brand" id="Pmarca">
+                        </div>
+               <div class="form-group" >
+                 
+                        <label for="" ></label>
+                        <select name="category" class="form-control" id="category">
+                            <option value="">Seleccione una categoria</option>
+                            <option ng-repeat="activas in activecategory"  value="<%activas.id%>"><%activas.name%></option>
+                             </select>
+                      
+               </div>
+                    <div class="form-group">
+                 <label for="">precio:</label>
+                 <input type="text" class="form-control" name="price" id="Pprice">
+               </div>
+             </form>    
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                     <button type="button" class="btn btn-default" ng-click="Registerproducto()">Guardar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+   </div>
+     
+   
+    <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body" id="contend">
+                    
+
+                </div>
+                <div class="modal-footer">
+                     <button type="button" class="btn btn-default" ng-click="UpdateP()">Guardar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+{% endblock %}
+

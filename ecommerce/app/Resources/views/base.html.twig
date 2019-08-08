@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="{{asset('public/css/bootstrap.min.css')}}" type="text/css"rel="stylesheet"/>
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" /> 
+        {% endblock %}
+        {% block javascripts %}
+            <script src="{{asset('public/js/jquery-3.3.1.slim.min.js')}} "></script>
+            <script src="{{asset('public/js/bootstrap.min.js')}} "></script> 
+            <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
+            <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
+            <script src="{{asset('public/js/angular.min.js')}} "></script>
+            
+            <script src="{{asset('public/js/index.js')}} "></script>
+            
+        {% endblock %}
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl">
+    
+        {% block body %}{% endblock %}
+
+    </body>
+</html>

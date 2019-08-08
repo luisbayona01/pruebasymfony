@@ -1,0 +1,2 @@
+  dento del proyecto en la carpeta sript bd  esta el  cript de base de datos la  paginacion y ordancion de datos en las tablas fue echo  
+  con jquery  y con angular
